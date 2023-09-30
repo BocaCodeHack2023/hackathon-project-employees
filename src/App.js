@@ -1,12 +1,14 @@
 import './styles/App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
+import UserInfo from './components/userInfo';
+import EmployeeProfile from './pages/Profile.jsx';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/login' element={<Login />} />
+        <Route path='/login' element={<EmployeeProfile/>} />
         {/* <Route path='' element={<Login />}></Route> */}
       </Routes>
       </BrowserRouter>
