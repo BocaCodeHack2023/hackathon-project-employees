@@ -1,0 +1,13 @@
+.font-size-app {
+  font-size: 1.5rem;
+}
+
+.width-responsive-app {
+  width: auto !important;
+}
+
+@media (max-width: 768px) {
+  .width-responsive-app {
+    width: 50% !important;
+  }
+}
