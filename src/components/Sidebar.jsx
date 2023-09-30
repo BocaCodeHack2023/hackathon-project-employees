@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import '../styles/sidebar.css';
+import { Link } from 'react-router-dom';
+import AppointmentPicker from '../pages/AppointmentPicker';
 
 export default function Sidebar( { setShowSidebar, showSidebar }) {
   
@@ -18,10 +20,10 @@ export default function Sidebar( { setShowSidebar, showSidebar }) {
             ? (
               <>
                 <div className="sidebarItem">
-                  <span className="sidebarTitle">Dashboard</span>
+                  <Link to={"/login"} className="sidebarTitle">Dashboard</Link>
                 </div>
                 <div className="sidebarItem">
-                  <span className="sidebarTitle">Employees</span>
+                  <Link className="sidebarTitle">Profile</Link>
                 </div>
                 <div className="sidebarItem">
                   <span className="sidebarTitle">Reports</span>
