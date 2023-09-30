@@ -1,9 +1,16 @@
+.app-card {
+  background-color: #2746F8 !important;
+}
+
 .font-size-app {
   font-size: 1.5rem;
+  font-weight: 700 !important;
 }
 
 .width-responsive-app {
   width: auto !important;
+  color: #2746F8 !important;
+  font-weight: 500 !important;
 }
 
 @media (max-width: 768px) {

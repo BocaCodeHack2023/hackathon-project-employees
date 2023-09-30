@@ -9,9 +9,11 @@ export default function AppointmentPicker() {
     <>
       <Container fluid>
         <Row>
-          <Col sm="12">
-            <Card>
-              <Card.Body className="d-flex align-items-center justify-content-between">
+          <Col sm="2">
+          </Col>
+          <Col sm="10">
+            <Card className="app-card">
+              <Card.Body className="d-flex align-items-center justify-content-between app-card-body">
                 <h1 className="font-size-app">
                   Make A Pre-Screening Appointment
                 </h1>
