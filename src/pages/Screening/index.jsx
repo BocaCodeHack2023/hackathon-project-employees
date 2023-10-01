@@ -37,7 +37,10 @@ export default function Screenings() {
   const [user, setUser] = useState({});
   const [locations, setLocations] = useState([]);
   const [locationId, setLocationId] = useState("");
-
+  const [date, setDate] = useState("");
+  const [notes, setNotes] = useState("");
+  const [screeningType, setScreeningType] = useState("");
+  
   const updateLocation = (e) => {
     console.log(e.target.value);
     setLocationId(e.target.value);
@@ -76,6 +79,9 @@ export default function Screenings() {
     const data = {
       user_id: user["_id"],
       location_id: locationId,
+      screening_type: screeningType,
+      date,
+      notes
     };
 
     try {
@@ -138,19 +144,19 @@ export default function Screenings() {
                       <Form.Control value={user.email} disabled></Form.Control>
                     </Col>
 
-                    <Col md="6" className="mt-3">
+                    <Col md="12" className="mt-3">
                       <Form.Label>Screening Type</Form.Label>
 
-                      <Form.Select>
+                      <Form.Select onChange={(e) => setScreeningType(e.target.value)}>
                         {cancerTypes.map((cancer, index) => (
                           <option key={index}>{cancer}</option>
                         ))}
                       </Form.Select>
                     </Col>
-                    <Col md="6" className="mt-3">
+                    <Col md="12" className="mt-3">
                       <Form.Label>Date and Time</Form.Label>
-
-                      <input className="form-control" type="datetime-local" />
+                      
+                      <input onChange={(e) => setDate(e.target.value)} className="form-control" type="datetime-local" />
                     </Col>
 
                     <Col md="12" className="mt-3">
@@ -170,7 +176,7 @@ export default function Screenings() {
                   <Form.Group className="mt-3" controlId="formBasicEmail">
                     <Form.Label>Notes</Form.Label>
                     <Form.Control as="textarea" style={{ height: "100px" }} />
-                    <Form.Text className="text-muted">
+                    <Form.Text onChange={(e) => setNotes(e.target.value)} className="text-muted">
                       We'll never share your email with anyone else.
                     </Form.Text>
                   </Form.Group>
