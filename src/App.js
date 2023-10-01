@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import EmployeeProfile from "./pages/profile.jsx";
 import Screenings from "./pages/Screening/index.jsx";
 import DashboardLayout from "./pages/DashboardLayout";
+import Results from "./pages/Results/index.jsx";
 
 function App() {
   return (
@@ -25,6 +26,14 @@ function App() {
           element={
             <DashboardLayout>
               <Screenings />
+            </DashboardLayout>
+          }
+        />
+        <Route
+          path="/results"
+          element={
+            <DashboardLayout>
+              <Results />
             </DashboardLayout>
           }
         />

@@ -18,3 +18,15 @@
     width: 50% !important;
   }
 }
+#upcomingAppt{
+  background-color: white;
+  border: solid;
+  border-color: lightgray;
+  border-width: 1px;
+  border-radius: 8px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#screeningHistory{
+  width: 90%;
+}
