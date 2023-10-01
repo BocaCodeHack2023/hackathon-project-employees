@@ -40,10 +40,24 @@ export default function Screenings() {
   const [date, setDate] = useState("");
   const [notes, setNotes] = useState("");
   const [screeningType, setScreeningType] = useState("");
+  const [screenings, setScreenings] = useState([]);
+
   
   const updateLocation = (e) => {
     console.log(e.target.value);
     setLocationId(e.target.value);
+  };
+
+  const getScreenings = async (e) => {
+    try {
+      const response = await HTTP({
+        url: `/screenings`,
+      });
+      const pending = response.data.filter((data) => data.status === "pending")
+      setScreenings(pending);
+    } catch (error) {
+      console.log("ERROR: " + error);
+    }
   };
 
   const getUser = async (e) => {
@@ -80,6 +94,7 @@ export default function Screenings() {
       user_id: user["_id"],
       location_id: locationId,
       screening_type: screeningType,
+      status: "pending",
       date,
       notes
     };
@@ -97,6 +112,8 @@ export default function Screenings() {
       }
     } catch (error) {
       console.log("ERROR: " + error);
+    } finally{
+      getScreenings();
     }
   };
 
@@ -104,6 +121,7 @@ export default function Screenings() {
     console.log("Use Effect");
     getUser();
     getLocations();
+    getScreenings()
   }, []);
 
   return (
@@ -197,7 +215,7 @@ export default function Screenings() {
           </Col>
 
           <Col md="8">
-            <Upcoming />
+            <Upcoming screenings={screenings}/>
           </Col>
         </Row>
       </Container>
