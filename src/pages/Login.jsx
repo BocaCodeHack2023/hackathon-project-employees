@@ -26,7 +26,7 @@ export default function LoginPage() {
 
     try {
       const response = await HTTP({
-        url: "/users/65186ff8bdc6c69c7645cbaf",
+        url: "/users/6518af7c2927278899a7137a",
       });
 
       console.log(response.data);
