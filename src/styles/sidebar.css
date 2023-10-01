@@ -52,6 +52,11 @@
   transition: all 0.3s ease-in-out;
 }
 
+.sidebarTitle {
+  text-decoration: none;
+  color: black;
+}
+
 .sidebarItemHidden:hover {
   background-color: #cbcbcb;
 }
