@@ -1,11 +1,12 @@
 import { useState, createContext, useContext, useReducer } from "react";
-import { Container } from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import HTTP from "./../utils/http";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
+import "../styles/login.css"
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -49,42 +50,49 @@ export default function LoginPage() {
         </Col>
 
         <Col sm="12" md="4" className="p-0 d-flex">
-          <div className="d-flex justify-content-center align-items-center w-100">
+          <div className="d-flex justify-content-center align-items-center w-100 login-container">
             <div className="w-75">
-              <Form onSubmit={createSession}>
-                <Form.Group className="mb-3">
-                  <Form.Label>Username</Form.Label>
-                  <Form.Control
-                    style={{ width: "100%" }}
-                    type="text"
-                    name="username"
-                    onChange={handleChange}
-                  />
-                </Form.Group>
 
-                <Form.Group className="mb-3">
-                  <Form.Label>Password</Form.Label>
-                  <div>
-                    <Form.Control
-                      style={{ width: "100%" }}
-                      className="w-100"
-                      type={showPassword ? "text" : "password"}
-                      name="password"
-                    />
-                    <Form.Check
-                      type="checkbox"
-                      id="show-password-checkbox"
-                      onChange={handleToggleShowPassword}
-                      label="Show password"
-                      className="mb-0 align-self-center"
-                    />
-                  </div>
-                </Form.Group>
+              <Card>
+                <Card.Body>
+                  <Form onSubmit={createSession}>
+                    <Form.Group className="mb-3">
+                      <Form.Label>Username</Form.Label>
+                      <Form.Control
+                        style={{ width: "100%" }}
+                        type="text"
+                        name="username"
+                        placeholder="username"
+                        onChange={handleChange}
+                      />
+                    </Form.Group>
 
-                <Button type="submit" variant="primary" className="w-100">
-                  Login
-                </Button>
-              </Form>
+                    <Form.Group className="mb-3">
+                      <Form.Label>Password</Form.Label>
+                      <div>
+                        <Form.Control
+                          style={{ width: "100%" }}
+                          className="w-100"
+                          type={showPassword ? "text" : "password"}
+                          name="password"
+                          placeholder="password"
+                        />
+                        <Form.Check
+                          type="checkbox"
+                          id="show-password-checkbox"
+                          onChange={handleToggleShowPassword}
+                          label="Show password"
+                          className="mb-0 align-self-center"
+                        />
+                      </div>
+                    </Form.Group>
+
+                    <Button type="submit" variant="primary" className="w-100">
+                      Login
+                    </Button>
+                  </Form>
+                </Card.Body>
+              </Card>
             </div>
           </div>
         </Col>
