@@ -38,8 +38,8 @@ export default function Sidebar() {
               <Link to="/profile" className="sidebarTitle">
                 <div className="sidebarItem">Profile</div>
               </Link>
-              <Link to={"/appointments"} className="sidebarTitle">
-                <div className="sidebarItem">Appointments</div>
+              <Link to={"/screenings"} className="sidebarTitle">
+                <div className="sidebarItem">Screenings</div>
               </Link>
               <Link to={"/results"} className="sidebarTitle">
                 <div className="sidebarItem">Results</div>
@@ -58,7 +58,7 @@ export default function Sidebar() {
                   </svg>
                 </div>
               </Link>
-              <Link to="/appointments">
+              <Link to="/Screenings">
                 <div className="sidebarItemHidden">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
