@@ -1,6 +1,17 @@
 .dashboard-rounded-avatar {
   object-fit: cover;
-  min-width: 60px;
+  min-width: 100px;
   background-color: white;
 }
 
+.profile-name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.profile-gender {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
