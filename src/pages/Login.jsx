@@ -27,7 +27,7 @@ export default function LoginPage() {
 
     try {
       const response = await HTTP({
-        url: "/users/6518af7c2927278899a7137a",
+        url: `/users/${process.env.REACT_APP_USER_ID}`,
       });
 
       console.log(response.data);
