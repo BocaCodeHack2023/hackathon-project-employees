@@ -35,21 +35,15 @@ export default function Sidebar() {
         <div className="d-flex flex-column">
           {showSidebar === true ? (
             <>
-              <div className="sidebarItem">
-                <Link to={"/profile"} className="sidebarTitle">
-                  Profile
-                </Link>
-              </div>
-              <div className="sidebarItem">
-                <Link to={"/appointments"} className="sidebarTitle">
-                  Appointments
-                </Link>
-              </div>
-              <div className="sidebarItem">
-                <Link to={"/results"} className="sidebarTitle">
-                  Results
-                </Link>
-              </div>
+              <Link to="/profile" className="sidebarTitle">
+                <div className="sidebarItem">Profile</div>
+              </Link>
+              <Link to={"/appointments"} className="sidebarTitle">
+                <div className="sidebarItem">Appointments</div>
+              </Link>
+              <Link to={"/results"} className="sidebarTitle">
+                <div className="sidebarItem">Results</div>
+              </Link>
             </>
           ) : (
             <>
