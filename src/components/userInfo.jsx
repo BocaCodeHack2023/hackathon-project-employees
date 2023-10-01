@@ -1,4 +1,4 @@
-import { Card, Container, Dropdown, Button, ListGroup } from "react-bootstrap";
+import { Card, Container, Dropdown, Button, ListGroup, Form } from "react-bootstrap";
 import "../styles/userCard.css"
 import { useEffect, useState } from "react";
 import HTTP from "./../utils/http";
@@ -41,7 +41,11 @@ export default function UserInfo() {
   return (
 
     <>
-
+    <Form>
+      <Form.Group>
+        
+      </Form.Group>
+    </Form>
       <ListGroup as="ul">
         <ListGroup.Item as="li" active>Contact Info</ListGroup.Item>
         <ListGroup.Item as="li">Phone: 561-425-8918</ListGroup.Item>

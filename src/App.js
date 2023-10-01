@@ -1,7 +1,7 @@
 import "./styles/App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
-import EmployeeProfile from "./pages/Profile.jsx";
+import EmployeeProfile from "./pages/profile.jsx";
 import Screenings from "./pages/Screening/index.jsx";
 import DashboardLayout from "./pages/DashboardLayout";
 

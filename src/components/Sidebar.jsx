@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "../styles/sidebar.css";
 import { Link } from "react-router-dom";
-// import AppointmentPicker from '../pages/AppointmentPicker';
 import { Button } from "react-bootstrap";
 
 export default function Sidebar() {
