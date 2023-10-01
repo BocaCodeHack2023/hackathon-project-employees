@@ -1,7 +1,6 @@
 import './styles/App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
-import EmployeeProfile from './pages/profile.jsx';
 
 function App() {
   return (
