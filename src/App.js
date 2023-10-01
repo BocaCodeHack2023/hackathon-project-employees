@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import EmployeeProfile from "./pages/Profile.jsx";
 import Screenings from "./pages/Screenings";
-import Layout from "./pages/Layout";
+import DashboardLayout from "./pages/DashboardLayout";
 
 function App() {
   return (
@@ -15,17 +15,17 @@ function App() {
         <Route
           path="/profile"
           element={
-            <Layout>
+            <DashboardLayout>
               <EmployeeProfile />
-            </Layout>
+            </DashboardLayout>
           }
         />
         <Route
           path="/screenings"
           element={
-            <Layout>
+            <DashboardLayout>
               <Screenings />
-            </Layout>
+            </DashboardLayout>
           }
         />
       </Routes>
