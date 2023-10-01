@@ -56,7 +56,7 @@ export default function Upcoming({screenings}) {
             </Row>
 
             <Row>
-              <Col>***add Address endpoint***</Col>
+              <Col>{data.address}</Col>
               <Col className="d-flex justify-content-end align-items-center">
                 <Badge  className=" bg-warning">
                   {data.status}

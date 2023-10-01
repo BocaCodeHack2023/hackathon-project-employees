@@ -48,12 +48,22 @@ export default function Screenings() {
     setLocationId(e.target.value);
   };
 
+  const localStreets = {
+    '6518949f70100b656b47ca8e': "123 Elm Street",
+    '65195e64ae3dd64706151eda': "456 Oak Road",
+    '65195e67ae3dd64706151edb': "789 Cherry Lane"
+  }
+
   const getScreenings = async (e) => {
     try {
       const response = await HTTP({
         url: `/screenings`,
       });
       const pending = response.data.filter((data) => data.status === "pending")
+      for(let i = 0; i < pending.length; i++){
+        console.log(`/locations/${pending[i].location_id}`)
+        pending[i] = {...pending[i], address: `${localStreets[pending[i].location_id]}, FL`}
+      }
       setScreenings(pending);
     } catch (error) {
       console.log("ERROR: " + error);
