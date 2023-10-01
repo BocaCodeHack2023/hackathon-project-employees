@@ -23,9 +23,8 @@ import HTTP from "../../utils/http";
 import "../../styles/screenings.css";
 import { formattedDatetime } from "../Results"
 
-export default function Upcoming() {
+export default function Upcoming({screenings}) {
 
-  const [screenings, setScreenings] = useState([]);
 
   const getBadgeColor = (color) => {
     let result = "primary";
@@ -43,21 +42,6 @@ export default function Upcoming() {
     }
   }
 
-  const getScreenings = async (e) => {
-    try {
-      const response = await HTTP({
-        url: `/screenings`,
-      });
-      const pending = response.data.filter((data) => data.status === "pending")
-      setScreenings(pending);
-    } catch (error) {
-      console.log("ERROR: " + error);
-    }
-  };
-
-  useEffect(() => {
-    getScreenings()
-  }, [])
   return (
     <>
       <Container id="upcomingAppt">
