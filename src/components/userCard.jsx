@@ -57,7 +57,7 @@ export default function UserCard() {
 
   return (
     <>
-      <Card className="w-25 d-flex justify-content-center" >
+      <Card className="w-25 d-flex justify-content-center user-card-card" >
         <Card.Body className="d-flex align-items-center">
           <Image
             className="dashboard-rounded-avatar me-1"
