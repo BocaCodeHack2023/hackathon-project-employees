@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, createContext, useContext, useReducer } from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import HTTP from "./../utils/http";
@@ -31,7 +31,7 @@ export default function LoginPage() {
 
       console.log(response.data);
       if (response?.data?.["_id"]) {
-        navigate("/dashboard");
+        navigate("/profile");
       }
     } catch (error) {
       console.log("ERROR: " + error);
