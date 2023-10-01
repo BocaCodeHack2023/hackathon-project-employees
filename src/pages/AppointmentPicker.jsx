@@ -1,8 +1,11 @@
 import { Card, Col, Container, Dropdown, Form, Row } from "react-bootstrap";
 import cancerTypes from "../utils/CancerTypes.json"
 import "../styles/appointmentPicker.css"
+import Sidebar from "../components/Sidebar";
+import { useState } from "react";
 
 export default function AppointmentPicker() {
+  const [showSidebar, setShowSidebar] = useState(false);
 
   // console.log(cancerTypes)
   return (
@@ -10,6 +13,7 @@ export default function AppointmentPicker() {
       <Container fluid>
         <Row>
           <Col sm="2">
+            <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
           </Col>
           <Col sm="10">
             <Card className="app-card">
