@@ -3,13 +3,10 @@ import ReactDOM from "react-dom";
 import "./styles/index.css";
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
-import MyContextProvider from "./store/index"; // Import the context provider
 
 ReactDOM.render(
   <React.StrictMode>
-    <MyContextProvider>
-      <App />
-    </MyContextProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
