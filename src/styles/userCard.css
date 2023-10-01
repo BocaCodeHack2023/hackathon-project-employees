@@ -1,3 +1,6 @@
-.img-ari {
-border-radius: 100px;
+.dashboard-rounded-avatar {
+  object-fit: cover;
+  min-width: 60px;
+  background-color: white;
 }
+
