@@ -18,10 +18,10 @@ import {
 } from "react";
 import { useNavigate } from "react-router-dom";
 
-import HTTP from "./../utils/http";
-import cancerTypes from "../utils/CancerTypes.json";
-import "../styles/screenings.css";
-import Sidebar from "../components/Sidebar";
+import HTTP from "../../utils/http";
+import cancerTypes from "../../utils/CancerTypes.json";
+import "../../styles/screenings.css";
+import Upcoming from "./Upcoming";
 
 // id: string
 // user_id: string
@@ -35,6 +35,13 @@ import Sidebar from "../components/Sidebar";
 // attachments
 export default function Screenings() {
   const [user, setUser] = useState({});
+  const [locations, setLocations] = useState([]);
+  const [locationId, setLocationId] = useState("");
+
+  const updateLocation = (e) => {
+    console.log(e.target.value);
+    setLocationId(e.target.value);
+  };
 
   const getUser = async (e) => {
     try {
@@ -51,9 +58,46 @@ export default function Screenings() {
     }
   };
 
+  const getLocations = async (e) => {
+    try {
+      const response = await HTTP({
+        url: `/locations`,
+      });
+
+      setLocations(response.data);
+    } catch (error) {
+      console.log("ERROR: " + error);
+    }
+  };
+
+  const createScreening = async (e) => {
+    e.preventDefault();
+
+    const data = {
+      user_id: user["_id"],
+      location_id: locationId,
+    };
+
+    try {
+      const response = await HTTP({
+        url: `/screenings`,
+        method: "POST",
+        data,
+      });
+
+      console.log(response.data);
+      if (response?.data?.["_id"]) {
+        setUser(response.data);
+      }
+    } catch (error) {
+      console.log("ERROR: " + error);
+    }
+  };
+
   useEffect(() => {
     console.log("Use Effect");
     getUser();
+    getLocations();
   }, []);
 
   return (
@@ -70,7 +114,7 @@ export default function Screenings() {
         </Row>
 
         <Row className="mt-5">
-          <Col>
+          <Col md="4">
             <Card>
               {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
               <Card.Body>
@@ -78,7 +122,7 @@ export default function Screenings() {
               </Card.Body>
 
               <Card.Body>
-                <Form>
+                <Form onSubmit={createScreening}>
                   <Row>
                     <Col md="6">
                       <Form.Label>Patient Name</Form.Label>
@@ -95,20 +139,29 @@ export default function Screenings() {
                     </Col>
 
                     <Col md="6" className="mt-3">
-                      <Form.Label>Email address</Form.Label>
+                      <Form.Label>Screening Type</Form.Label>
 
-                      <Form.Select aria-label="Type of Screening">
+                      <Form.Select>
                         {cancerTypes.map((cancer, index) => (
                           <option key={index}>{cancer}</option>
                         ))}
                       </Form.Select>
                     </Col>
                     <Col md="6" className="mt-3">
-                      <Form.Label>Date</Form.Label>
+                      <Form.Label>Date and Time</Form.Label>
 
-                      <Form.Select aria-label="Type of Screening">
-                        {cancerTypes.map((cancer, index) => (
-                          <option key={index}>{cancer}</option>
+                      <input className="form-control" type="datetime-local" />
+                    </Col>
+
+                    <Col md="12" className="mt-3">
+                      <Form.Label>Screening Location</Form.Label>
+
+                      <Form.Select onChange={updateLocation}>
+                        <option>-</option>
+                        {locations.map((element, index) => (
+                          <option key={index} value={element["_id"]}>
+                            {element.name} {element.address_street}
+                          </option>
                         ))}
                       </Form.Select>
                     </Col>
@@ -123,7 +176,11 @@ export default function Screenings() {
                   </Form.Group>
 
                   <div className="d-grid gap-2 mt-3">
-                    <Button variant="success" className="btn-block">
+                    <Button
+                      variant="success"
+                      type="submit"
+                      className="btn-block"
+                    >
                       <Icon
                         path={mdiRocketLaunchOutline}
                         size={1}
@@ -135,6 +192,10 @@ export default function Screenings() {
                 </Form>
               </Card.Body>
             </Card>
+          </Col>
+
+          <Col md="8">
+            <Upcoming />
           </Col>
         </Row>
       </Container>
