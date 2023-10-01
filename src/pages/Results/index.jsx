@@ -35,7 +35,7 @@ import "../../styles/screenings.css";
 // updatedAt
 // user_id
 // _id
-const formattedDatetime = (date) => {
+export const formattedDatetime = (date) => {
   return moment(date).format("MMM DD, YYYY hh:mm A");
 };
 

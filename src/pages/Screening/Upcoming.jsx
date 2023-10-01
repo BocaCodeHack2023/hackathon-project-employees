@@ -20,6 +20,7 @@ import { useNavigate } from "react-router-dom";
 
 import HTTP from "../../utils/http";
 import "../../styles/screenings.css";
+import {formattedDatetime} from "../Results"
 
 export default function Upcoming() {
 
@@ -50,12 +51,11 @@ useEffect(() => {
           <section id="screeningHistory" className="mx-auto">
         <Row>
           <Col>{data.screening_type}</Col>
-          <Col className="text-end">{data.date}</Col>
+          <Col className="text-end">{formattedDatetime(data.date)}</Col>
         </Row>
 
         <Row>
           <Col>***add Address endpoint***</Col>
-          <Col className="text-end">*****time****</Col>
         </Row>
           </section>
 
