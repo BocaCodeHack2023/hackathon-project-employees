@@ -27,29 +27,38 @@ export default function UserCard() {
     fetchUser();
   }, []);
 
-  const updateUser = async () => {
-    try {
-      const response = await HTTP({
-        url: "/users/6518af7c2927278899a7137a",
-        method: "PUT",
-        data: {
-          "_id": "6518af7c2927278899a7137a",
-          "avatar": "https://www.chcfl.org/wp-content/uploads/2015/12/American-Cancer-Society.jpg",
-          "name": "Ariana Grande",
-          "gender": "femoide"
-        }
+  // const updateUser = async () => {
+  //   try {
+  //     const response = await HTTP({
+  //       url: "/users/6518af7c2927278899a7137a",
+  //       method: "PUT",
+  //       data: {
+  //         "_id": "6518af7c2927278899a7137a",
+  //         "name": "Ariana",
+  //         "last_name": "Diaz",
+  //         "email": "team@techhubsouthflorida.org",
+  //         "phone": "561-425-8918",
+  //         "address_street": "313 Datura St, Suite 200",
+  //         "address_city": "West Palm Beach",
+  //         "address_zip": "33401",
+  //         "address_state": "FL",
+  //         "cancer_type": "Skin Cancer",
 
-      })
-    } catch (error) {
-      console.log("ERROR: " + error);
-    }
-  }
+
+  //         "gender": "female"
+  //       }
+
+  //     })
+  //   } catch (error) {
+  //     console.log("ERROR: " + error);
+  //   }
+  // }
 
 
   return (
     <>
       <Card className="w-25 d-flex justify-content-center" >
-        <Card.Body className="d-flex">
+        <Card.Body className="d-flex align-items-center">
           <Image
             className="dashboard-rounded-avatar me-1"
             roundedCircle
@@ -63,9 +72,7 @@ export default function UserCard() {
           </div>
         </Card.Body>
       </Card>
-      <Button onClick={updateUser}>
-OMG HAIIIII
-      </Button>
+
     </>
 
   );
