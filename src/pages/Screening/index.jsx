@@ -112,7 +112,7 @@ export default function Screenings() {
         <Row>
           <Col>
             <Card className="app-card">
-              <Card.Body className="d-flex align-items-center justify-content-between app-card-body">
+              <Card.Body className="d-flex align-items-center justify-content-between app-card-body-header">
                 <h3 className="text-white">Make A Pre-Screening Appointment</h3>
               </Card.Body>
             </Card>
@@ -123,11 +123,7 @@ export default function Screenings() {
           <Col md="4">
             <Card>
               {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-              <Card.Body>
-                <Card.Text></Card.Text>
-              </Card.Body>
-
-              <Card.Body>
+              <Card.Body className="app-card-body-real">
                 <Form onSubmit={createScreening}>
                   <Row>
                     <Col md="6">
@@ -183,7 +179,7 @@ export default function Screenings() {
 
                   <div className="d-grid gap-2 mt-3">
                     <Button
-                      variant="success"
+                      variant="danger"
                       type="submit"
                       className="btn-block"
                     >
