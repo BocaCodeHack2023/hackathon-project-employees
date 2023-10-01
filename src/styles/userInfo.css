@@ -1,0 +1,23 @@
+.user-info-card {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 1rem !important;
+  border: none !important;
+}
+
+.user-info-card-header {
+  background-color: #2746F8 !important;
+  border: none !important;
+  color: white !important;
+}
+
+.user-info-card-body {
+  background-color: #EBFCFF !important;
+  border-radius: 0rem 0rem 1rem 1rem !important;
+  border: none !important;
+}
+
+.profile-contact-text {
+  background-color: white !important;
+  /* color: #0026ff !important; */
+  font-weight: 500 !important;
+}
